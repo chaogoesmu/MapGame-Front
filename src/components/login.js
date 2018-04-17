@@ -28,6 +28,7 @@ class login extends React.Component{
     if(theButton==='logOff')
     {
       this.setState({status:0})
+      fn({token:{id:-1},reset:true})
     }
   }
 
@@ -36,8 +37,13 @@ class login extends React.Component{
     axios.get(`${backend}login`, {headers:{username:this.state.username,password:this.state.password}})
     .then(res=>{
       this.setState({status: 3})
-      console.log(res.data)
-      fn({token:res.data[0]})
+      console.log('token change: ',res.data)
+      if(res.data.length>0)
+      {fn({token:res.data[0]})}
+      else {
+        this.setState({status: -1});
+      }
+
     })
     .catch(err=>{
       console.log('login error:', err);
