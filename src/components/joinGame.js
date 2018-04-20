@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import backend from '../globals.js';
+import { Button } from 'react-bootstrap';
 
 
 //TODO: refactor this away from a class, while it seems necessary for the text boxes, investigate if it is actually required.
@@ -102,7 +103,7 @@ class joinGame extends React.Component{
   displayGames=()=>{
     //console.log('games list',this.state.games)
     return this.state.games.map((x,i)=>{
-      return  <span key={i}>{x.name}<button onClick={()=>(this.joinGame(x.id, x.name, x.pid))}>Join</button><br/></span>
+      return  <span key={i}>{x.name}<button class="btn btn-default" onClick={()=>(this.joinGame(x.id, x.name, x.pid))}>Join</button><br/></span>
     })
   }
 
@@ -125,8 +126,11 @@ class joinGame extends React.Component{
         return (
           <div>
           {this.displayGames()}
-          Game Name:<textarea value={this.state.gameName} onChange={this.editGameName} />
-          {<button onClick = {()=>(this.createGame(this.state.gameName))}>Create Game</button>}
+          <div class="form-group">
+          <label>Game Name:</label>
+          <input type="username" value={this.state.gameName} onChange={this.editGameName} />
+          </div>
+          {<button class="btn btn-default" onClick = {()=>(this.createGame(this.state.gameName))}>Create Game</button>}
           </div>
         )
       case 1://in a game

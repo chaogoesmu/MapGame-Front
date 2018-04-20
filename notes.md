@@ -8,10 +8,29 @@ start Game (f, possibly b, TBD)
 find Game (f)
   currently this is built in the backend, just grab all games currently being played
 join Game (f)
-
-
-
 render other players on the map (f)
 capture mechanic (f)  proximity based when calling marco for now
+
+
 render lines for vague non specific directions (f)
   90 degree and branch off, render a circle then render to, shrink radius of circle depending on distance?  size of based on distance so always about a 45 degree?
+
+
+
+requests to the Backend
+
+
+Users:
+login
+logout
+create users
+
+Games:
+create games
+get Games
+
+
+gamesData:
+add user to a game
+Get all Users
+modify Users

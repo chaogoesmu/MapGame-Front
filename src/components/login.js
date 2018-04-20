@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import backend from '../globals.js';
+import { Button } from 'react-bootstrap';
 
 //let clicked = (fn, state)=>{fn({loggedIn: !state})}
 class login extends React.Component{
@@ -72,7 +73,7 @@ class login extends React.Component{
     {
       return (
         <div>
-        <button onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn, 'logOff'))}>log Off</button>
+        <button class="btn btn-danger" onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn, 'logOff'))}>log Off</button>
         </div>
       )
     }
@@ -82,9 +83,15 @@ class login extends React.Component{
     {
       return (
         <div>
-        Username:<textarea value={this.state.username} onChange={this.editUsername} />
-        Password:<textarea value={this.state.password} onChange={this.editPassword} />
-        <button onClick = {()=>(this.login(this.props.update, this.props.loggedIn, 'logOff'))}>submit</button>
+        <div class="form-group">
+        <label>Username:</label>
+        <input type="username" value={this.state.username} onChange={this.editUsername} />
+        </div>
+        <div class="form-group">
+        <label>Password:</label>
+        <input type="password" value={this.state.password} onChange={this.editPassword} />
+        </div>
+        <button class="btn btn-primary" onClick = {()=>(this.login(this.props.update, this.props.loggedIn, 'logOff'))}>submit</button>
         </div>
       )
     }
@@ -94,9 +101,15 @@ class login extends React.Component{
     {
       return (
         <div>
-        Username:<textarea value={this.state.username} onChange={this.editUsername} />
-        Password:<textarea value={this.state.password} onChange={this.editPassword} />
-        <button onClick = {()=>(this.create(this.props.update, this.props.loggedIn))}>create</button>
+        <div class="form-group">
+        <label>Username:</label>
+        <input type="username" value={this.state.username} onChange={this.editUsername} />
+        </div>
+        <div class="form-group">
+        <label>Password:</label>
+        <input type="password" value={this.state.password} onChange={this.editPassword} />
+        </div>
+        <button class="btn btn-primary" onClick = {()=>(this.create(this.props.update, this.props.loggedIn))}>create</button>
         </div>
       )
     }
@@ -105,8 +118,8 @@ class login extends React.Component{
     return (
       <div>
       {this.state.status===-1?'Login Failed':''}
-      <button onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn, 'login'))}>login</button>
-      <button onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn,'newUser'))}>New User</button>
+      <button class="btn btn-primary" onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn, 'login'))}>login</button>
+      <button class="btn btn-success" onClick = {()=>(this.clicked(this.props.update, this.props.loggedIn,'newUser'))}>New User</button>
       </div>
     )
   }

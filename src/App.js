@@ -5,7 +5,7 @@ import JoinGame from './components/joinGame.js';
 import './App.css';
 import backend from './globals.js';
 import axios from 'axios';
-
+import { Button } from 'react-bootstrap';
 
 //set a timer that goes off every 30 seconds and updates the users location.
 
@@ -92,7 +92,7 @@ class App extends Component {
     if(this.state.gameOver)
     {
       return(
-        <button onClick = {()=>(this.reset())}>Game Over</button>:''
+        <button class="btn btn-default" onClick = {()=>(this.reset())}>Game Over</button>:''
       )
     }
     let onlyShowOnLogin=''
@@ -122,10 +122,11 @@ class App extends Component {
     console.log(this.state.gID)
     return (
       <div className="App">
+      <row>
       <Login
         update={this.setState2}
         loggedIn = {this.state.loggedIn}
-      />
+      /></row>
 
           {onlyShowOnLogin}
           {this.state.amIIt?<button onClick = {()=>(this.capture())}>capture</button>:''}
